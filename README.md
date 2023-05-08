@@ -13,7 +13,7 @@
 | Part 5. Observability | [] 0% |            |  |
 | Part 6. 분산 시스템 Fundamental | [] 0% |            |  |
 | Part 7. ElasticSearch(OpenSearch) | [] 0% |             |  |
-| Part 8. Hadoop, Hive, HBase | [] 0% |             |  |
+| [Part 8. Hadoop, Hive, HBase](https://github.com/seonwook97/Data-Engineering/tree/main/%ED%95%9C%20%EB%B2%88%EC%97%90%20%EB%81%9D%EB%82%B4%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4%EB%A7%81%20%EC%B4%88%EA%B2%A9%EC%B0%A8%20%ED%8C%A8%ED%82%A4%EC%A7%80%20Online/Hadoop%2C%20Hive%2C%20HBase) | [==>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;] 10% | 2023-05-08 |  |
 | Part 9. Batch, ETL, Workflow Scheduler | [] 0% |             |  |
 | Part 10. Distributed Streaming Processing | [] 0% |             |  |
 | Part 11. Spark | [] 0% |             |  |
