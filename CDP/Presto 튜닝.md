@@ -21,11 +21,32 @@
 
 ## 필요한 열 지정
 - Treasure Data의 실제 데이터는 특정 컬럼만을 사용하는 쿼리에 최적화된 컬럼 스토리지 형식으로 저장됩니다. 액세스되는 열을 제한하면 쿼리 성능이 크게 향상될 수 있습니다. 와일드카드(*)를 사용하는 대신 필요한 열만 지정하십시오.
-```SQL
-SELECT time,user,host FROM tbl -- good
-SELECT * FROM tbl -- bad
-```
+    ```SQL
+    SELECT time,user,host FROM tbl -- good
+    SELECT * FROM tbl -- bad
+    ```
 
 ## 시간 기반 파티셔닝 활용
 - 가져온 모든 데이터는 각 데이터 레코드 내의 필드를 기반으로 시간별 버킷으로 자동 분할됩니다 `time`.
 - 쿼리에서 시간 범위를 지정하면 불필요한 데이터 읽기를 피할 수 있으므로 쿼리 속도를 크게 높일 수 있습니다.
+
+### 시간을 정수로 지정
+- 필드가 WHERE 절 내에 지정 되면 `time`쿼리 파서는 처리해야 하는 파티션을 자동으로 감지합니다. 대신에 시간을 지정하면 이 자동 감지가 작동 하지 않습니다 .`float``int`
+    ```SQL
+    SELECT field1, field2, field3 FROM tbl WHERE time > 1349393020 -- good
+    SELECT field1, field2, field3 FROM tbl WHERE time > 1349393020 + 3600 -- good
+    SELECT field1, field2, field3 FROM tbl WHERE time > 1349393020 - 3600 -- good
+    SELECT field1, field2, field3 FROM tbl WHEREtime > ${last_proceessed_time} -- good 
+    SELECT field1, field2, field3 FROM tbl WHERE time > 13493930200 / 10 -- bad
+    SELECT field1, field2, field3 FROM tbl WHERE time > 1349393020.00 -- bad
+    SELECT field1, field2, field3 FROM tbl WHERE time BETWEEN 1349392000 AND 1349394000 -- bad
+    SELECT field1, field2, field3 FROM tbl WHEREtime > (SELECT MAX(last_updated) FROM tbl2) -- bad 
+    ```
+
+### TD-TIME-RANGE 사용
+- TD_TIME_RANGE를 사용하여 데이터를 분할할 수 있음
+    ```SQL
+    SELECT ... WHERE TD_TIME_RANGE(time, '2013-01-01 PDT')
+    SELECT ... WHERE TD_TIME_RANGE(time, '2013-01-01','PDT', NULL)
+    SELECT ... WHERE TD_TIME_RANGE(time, '2013-01-01', TD_TIME_ADD('2013-01-01', '1day', 'PDT'))
+    ```
