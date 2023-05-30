@@ -31,7 +31,7 @@
 - 쿼리에서 시간 범위를 지정하면 불필요한 데이터 읽기를 피할 수 있으므로 쿼리 속도를 크게 높일 수 있습니다.
 
 ### 시간을 정수로 지정
-- 필드가 WHERE 절 내에 지정 되면 `time`쿼리 파서는 처리해야 하는 파티션을 자동으로 감지합니다. 대신에 시간을 지정하면 이 자동 감지가 작동 하지 않습니다 .`float``int`
+- 필드가 WHERE 절 내에 지정 되면 `time`쿼리 파서는 처리해야 하는 파티션을 자동으로 감지합니다. 대신에 시간을 지정하면 이 자동 감지가 작동 하지 않습니다 .`float` `int`
     ```SQL
     SELECT field1, field2, field3 FROM tbl WHERE time > 1349393020 -- good
     SELECT field1, field2, field3 FROM tbl WHERE time > 1349393020 + 3600 -- good
