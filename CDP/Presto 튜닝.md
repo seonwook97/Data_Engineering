@@ -1,6 +1,9 @@
 # Presto 성능 튜닝
 
-1.[튜닝 팁](#튜닝-팁)
+1. [튜닝 팁](#튜닝-팁)
+2. [필요한 열 지정](#필요한-열-지정)
+3. [시간 기반 파티셔닝 활용](#시간-기반-파티셔닝-활용)
+4. [GROUP BY 절 내의 카디널리티 고려](#GROUP-BY-절-내의-카디널리티-고려)
 
 ---
 
@@ -46,7 +49,16 @@
 ### TD-TIME-RANGE 사용
 - TD_TIME_RANGE를 사용하여 데이터를 분할할 수 있음
     ```SQL
-    SELECT ... WHERE TD_TIME_RANGE(time, '2013-01-01 PDT')
-    SELECT ... WHERE TD_TIME_RANGE(time, '2013-01-01','PDT', NULL)
-    SELECT ... WHERE TD_TIME_RANGE(time, '2013-01-01', TD_TIME_ADD('2013-01-01', '1day', 'PDT'))
+    SELECT ... WHERE TD_TIME_RANGE(time, '2013-01-01 PDT') -- good
+    SELECT ... WHERE TD_TIME_RANGE(time, '2013-01-01','PDT', NULL) -- good
+    SELECT ... WHERE TD_TIME_RANGE(time, '2013-01-01', TD_TIME_ADD('2013-01-01', '1day', 'PDT')) -- good
     ```
+- 그러나 TD_TIME_RANGE에서 나누기를 사용하면 시간 파티션 최적화가 작동하지 않습니다. 
+    - 예를 들어 Treasure Data는 최적화를 비활성화하므로 SQL 구성을 권장하지 않습니다.
+
+## GROUP BY 절 내의 카디널리티 고려
+- GROUP BY 내의 필드 목록을 높은 카디널리티 순서로 신중하게 정렬하여 GROUP BY 기능의 성능을 향상시킬 수 있습니다.
+
+    ![image](https://github.com/seonwook97/Data-Engineering/assets/92377162/2e3dddcc-dac0-4aa5-97fd-c2e7c2a45b66)
+
+- 또는 GROUP BY 열에 문자열 대신 숫자를 사용하십시오. 숫자는 문자열보다 적은 메모리를 필요로 하고 비교가 더 빠르기 때문입니다.
