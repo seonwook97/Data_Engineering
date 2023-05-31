@@ -7,6 +7,7 @@
 5. [ORDER BY와 함께 LIMIT 사용](#ORDER-BY와-함께-LIMIT-사용)
 6. [count(distinct x) -> approx_distinct()](#count(distinct-x)-->-approx_distinct())
 7. [like -> regexp_like()](#like-->-regexp_like())
+8. [Presto 조인 및 정렬 알고리즘 선택](#Presto-조인-및-정렬-알고리즘-선택)
 
 ---
 
@@ -108,3 +109,19 @@
     WHERE
       regexp_like(method, 'GET|POST|PUT|DELETE')
     ```
+
+## Presto 조인 및 정렬 알고리즘 선택
+
+### 조인 알고리즘
+- 조인 배포에는 두 가지 유형이 있습니다.
+    - **Partitioned**: 쿼리에 참여하는 각 노드는 데이터의 일부에서 해시 테이블을 작성합니다.
+    - **Broadcast**: 쿼리에 참여하는 각 노드는 모든 데이터에서 해시 테이블을 작성합니다(데이터는 각 노드에 복제됨).
+
+- Presto에서 사용되는 기본 조인 알고리즘은 분산된 PARTITION 조인입니다. 이 알고리즘은 조인 키의 해시 값을 사용하여 왼쪽 테이블과 오른쪽 테이블을 모두 분할합니다. 분할된 조인은 쿼리를 처리하기 위해 여러 작업자 노드를 사용합니다. 일반적으로 더 빠르고 더 적은 메모리를 사용합니다.
+
+- 조인 테이블 중 하나가 매우 작은 일부 경우 분산 PARTITION 조인을 사용하여 네트워크를 통해 데이터를 분할하는 오버헤드가 조인 작업에 참여하는 모든 노드에 전체 테이블을 브로드캐스트하는 이점을 초과할 수 있습니다. 이러한 경우 'BROADCAST' 조인이 더 잘 수행될 수 있습니다. BROADCAST 조인을 사용하는 경우 조인 절에서 먼저 큰 테이블을 지정하십시오. 다음 매직 코멘트를 지정하여 'BROADCAST' 조인을 활성화할 수 있습니다.
+
+    ```SQL    
+    -- set session join_distribution_type = 'BROADCAST'
+    ```
+    - 이 옵션은 올바른 조인 테이블이 모든 노드에 복사되므로 더 많은 메모리를 사용합니다.
