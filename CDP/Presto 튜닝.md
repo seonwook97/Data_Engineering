@@ -4,6 +4,9 @@
 2. [필요한 열 지정](#필요한-열-지정)
 3. [시간 기반 파티셔닝 활용](#시간-기반-파티셔닝-활용)
 4. [GROUP BY 절 내의 카디널리티 고려](#GROUP-BY-절-내의-카디널리티-고려)
+5. [ORDER BY와 함께 LIMIT 사용](#ORDER-BY와-함께-LIMIT-사용)
+6. [count(distinct x) -> approx_distinct()](#count(distinct-x)-->-approx_distinct())
+7. [like -> regexp_like()](#like-->-regexp_like())
 
 ---
 
@@ -62,3 +65,46 @@
     ![image](https://github.com/seonwook97/Data-Engineering/assets/92377162/2e3dddcc-dac0-4aa5-97fd-c2e7c2a45b66)
 
 - 또는 GROUP BY 열에 문자열 대신 숫자를 사용하십시오. 숫자는 문자열보다 적은 메모리를 필요로 하고 비교가 더 빠르기 때문입니다.
+
+## ORDER BY와 함께 LIMIT 사용
+- ORDER BY는 모든 행을 단일 작업자에게 보낸 다음 정렬하도록 요구합니다. ORDER BY는 종종 Presto 작업자에 많은 메모리를 요구할 수 있습니다. 상위 또는 하위 N개의 레코드를 조회하려면 정렬 비용과 메모리 압력을 줄일 수 있는 LIMIT를 사용하십시오.
+    
+    ![image](https://github.com/seonwook97/Data-Engineering/assets/92377162/236fc25b-5a34-4843-9b0a-5646fe1961b9)
+
+## count(distinct x) -> approx_distinct()
+- Presto 에는 상당한 성능 향상을 제공하지만 약간의 오류가 있는 몇 가지 근사 집계 함수가 있습니다. 예를 들어 approx_distinct() 함수를 사용하면 표준 오차가 2.3%인  COUNT(DISTINCT x)의 근사값을 얻을 수 있습니다. 다음 예는 전날 순 사용자의 대략적인 수를 제공합니다.
+
+    ```SQL    
+    SELECT
+      approx_distinct(user_id)
+    FROM
+      access
+    WHERE
+      TD_TIME_RANGE(time,
+        TD_TIME_ADD(TD_SCHEDULED_TIME(), '-1d', 'PDT'),
+        TD_SCHEDULED_TIME())
+    ```
+
+## like -> regexp_like()
+- Presto의 쿼리 최적화 프로그램은 많은 LIKE 절이 포함된 쿼리를 개선할 수 없습니다. 결과적으로 쿼리 실행이 예상보다 느려질 수 있습니다. 성능을 향상시키기 위해 OR 조건으로 연결된 일련의 LIKE 절을 Presto 고유의 단일 regexp_like 절로 대체할 수 있습니다.
+
+    ```SQL
+    -- like    
+    SELECT
+      ...
+    FROM
+      access
+    WHERE
+      method LIKE '%GET%' OR
+      method LIKE '%POST%' OR
+      method LIKE '%PUT%' OR
+      method LIKE '%DELETE%'
+    
+    -- regexp_like() 
+    SELECT
+      ...
+    FROM
+      access
+    WHERE
+      regexp_like(method, 'GET|POST|PUT|DELETE')
+    ```
