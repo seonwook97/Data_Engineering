@@ -8,6 +8,7 @@
 6. [count(distinct x) -> approx_distinct()](#count(distinct-x)-->-approx_distinct())
 7. [like -> regexp_like()](#like-->-regexp_like())
 8. [Presto 조인 및 정렬 알고리즘 선택](#Presto-조인-및-정렬-알고리즘-선택)
+9. [Reference](#Reference)
 
 ---
 
@@ -125,3 +126,9 @@
     -- set session join_distribution_type = 'BROADCAST'
     ```
     - 이 옵션은 올바른 조인 테이블이 모든 노드에 복사되므로 더 많은 메모리를 사용합니다.
+
+---
+
+## Reference
+
+- https://api-docs.treasuredata.com/en/tools/presto/presto_performance_tuning/
