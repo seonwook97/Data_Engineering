@@ -1,7 +1,7 @@
 # Flattening nested arrays - 중첩 배열 평면화
 
-1. [AWS Athena](#1-AWS-Athena)
-2. [Presto Docs](#2-Presto-Docs)
+1. [AWS Athena](AWS-Athena)
+2. [Presto Docs](Presto-Docs)
 
 ---
 
