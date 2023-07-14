@@ -5,7 +5,7 @@
 
 ---
 
-## AWS Athena
+## 1. AWS Athena
 
 ### flatten
 - 중첩 배열로 작업할 때 중첩 배열 요소를 단일 배열로 확장하거나 배열을 여러 행으로 확장해야 할 수 있음
@@ -54,7 +54,7 @@ SELECT flatten(ARRAY[ ARRAY[1,2], ARRAY[3,4] ]) AS items
   
 ---
 
-## Presto Docs
+## 2. Presto Docs
 
 ### cross join
 - cross join은 두 테이블의 데카르트 곱(모든 조합)을 반환
