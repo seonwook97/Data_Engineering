@@ -51,7 +51,10 @@ SELECT flatten(ARRAY[ ARRAY[1,2], ARRAY[3,4] ]) AS items
   ```
 
   ![image](https://github.com/seonwook97/Data-Engineering/assets/92377162/8ea4b3c2-4ef3-48d1-ba23-dfb60743b4a5)
-  
+
+### Reference
+- https://docs.aws.amazon.com/athena/latest/ug/flattening-arrays.html
+
 ---
 
 ## 2. Presto Docs
@@ -132,5 +135,8 @@ order by 1, 2;
   ```
 
   ![image](https://github.com/seonwook97/Data-Engineering/assets/92377162/4214e33f-558e-4663-898a-f8092e3f6134)
-  
----
+
+### Reference
+- https://prestodb.io/docs/current/sql/select.html#unnest
+
+
