@@ -1,11 +1,11 @@
 # CTAS & UDP 
 
-[UDP 사례](UDP-사례)
-[UDP에 대한 CREATE TABLE 구문](UDP에-대한-CREATE-TABLE-구문)
+1. [UDP 사례](#1-UDP-사례)
+2. [UDP에 대한 CREATE TABLE 구문](#2-UDP에-대한-CREATE-TABLE-구문)
 
 ---
 
-## UDP 사례
+## 1. UDP 사례
 - 조회 및 집계가 하나 이상의 특정 열을 기반으로 하는 경우
   - 효율적인 조회 및 집계 쿼리
   - 효율적인 조인 쿼리
@@ -19,7 +19,7 @@
   - 파티션 키에 대한 집계
   - 조인 양쪽의 테이블에서 사용되는 파티션 키에 대한 매우 큰 조인
 
-## UDP에 대한 CREATE TABLE 구문
+## 2. UDP에 대한 CREATE TABLE 구문
 - UDP 생성
 
   ```SQL
