@@ -127,8 +127,26 @@
     ```
     - 이 옵션은 올바른 조인 테이블이 모든 노드에 복사되므로 더 많은 메모리를 사용합니다.
 
+- Type: string
+- Allowed values: 'AUTOMATIC', 'PARTITIONED', 'BROADCAST'
+- Default value: 'AUTOMATIC'
+- 'PARTITIONED': 해시 분산 조인 사용
+    - 브로드캐스트 조인보다 느릴 수 있지만 훨씬 더 큰 조인을 허용
+    - 모든 노드의 분산 메모리에만 맞아야 함
+- 'BROADCAST': 왼쪽 테이블의 데이터가 있는 클러스터의 모든 노드에 오른쪽 테이블을 브로드캐스트 함
+    - 오른쪽 테이블이 왼쪽 테이블보다 훨씬 작은 경우 브로드캐스트 조인이 더 빠름
+    - 필터링 후 조인 오른쪽에 있는 테이블이 각 노드의 메모리에 맞아야 함
+- 'AUTOMATIC': Trino는 최적의 배포 유형에 대한 비용 기반 결정을 내림
+    - 왼쪽 및 오른쪽 입력을 조인으로 전환하는 것을 고려
+    - 테이블에 통계가 없는 경우와 같이 비용을 계산할 수 없는 경우 기본적으로 해시 분산 조인을 사용
+- 세션 속성을 사용하여 쿼리별로 지정할 수 있음
+  
+    ```SQL
+    set session join_distribution_type = 'AUTOMATIC'
+    ```
 ---
 
 ## Reference
 
 - https://api-docs.treasuredata.com/en/tools/presto/presto_performance_tuning/
+- https://trino.io/docs/current/admin/properties-general.html
