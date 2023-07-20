@@ -1,5 +1,10 @@
 # CTAS & UDP 
 
+[UDP 사례](UDP-사례)
+[UDP에 대한 CREATE TABLE 구문](UDP에-대한-CREATE-TABLE-구문)
+
+---
+
 ## UDP 사례
 - 조회 및 집계가 하나 이상의 특정 열을 기반으로 하는 경우
   - 효율적인 조회 및 집계 쿼리
