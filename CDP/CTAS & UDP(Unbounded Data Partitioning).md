@@ -13,3 +13,28 @@
   - 파티션 키 값이 매우 희귀하거나 존재하지 않는 조회
   - 파티션 키에 대한 집계
   - 조인 양쪽의 테이블에서 사용되는 파티션 키에 대한 매우 큰 조인
+
+## UDP에 대한 CREATE TABLE 구문
+- UDP 생성
+
+  ```SQL
+  CREATE TABLE table_name WITH
+  (
+    bucketed_on = array['col1'],
+    bucket_count = n, -- 기본값 = 512
+    max_file_size = 'nnnMB', -- 기본값 = 256MB
+    max_time_range = 'nnd'] -- 1d or 24hours
+  )
+  AS SELECT * temp_tb
+  ```
+
+### UDP용 버켓팅 열 선택
+- UDP 파티션 키에 허용되는 데이터 유형: `int`, `long`, `string`
+- 하나 이상의 컬럼 집합 선택
+  - 고객 ID
+  - 국가 + 시/도 + 시
+  - 우편번호
+  - 고객 이름 + 성 + 생년월일
+- 카디널리티(버킷 수에 비해)가 높고 등호 술어와 함께 자주 사용되는 열 또는 열 집합 선택
+  - 고유한 값(이메일 주소, 계정 번호)
+  - 생년월일과 같이 상대적으로 균등하게 분포된 고유하지 않지만 카디널리티가 높은 열
