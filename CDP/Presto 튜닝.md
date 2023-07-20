@@ -142,7 +142,7 @@
 - 세션 속성을 사용하여 쿼리별로 지정할 수 있음
   
     ```SQL
-    set session join_distribution_type = 'AUTOMATIC'
+    -- set session join_distribution_type = 'AUTOMATIC'
     ```
 ---
 
