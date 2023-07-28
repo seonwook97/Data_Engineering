@@ -31,3 +31,20 @@ select
 ```
 
 ![image](https://github.com/seonwook97/Data-Engineering/assets/92377162/25cd915a-889b-4ffd-a73f-b18c217c70a8)
+
+## Interval Functions
+```SQL
+select 
+	from_unixtime(time) as time, 
+	date_add('hour', 9, from_unixtime(time)) as add_time, 
+	date_diff('hour', from_unixtime(time), date_add('hour', 9, from_unixtime(time))) as diff_hour
+from htl_prd_dvw.cst_cust_dtl 
+limit 10;
+```
+
+![image](https://github.com/seonwook97/Data-Engineering/assets/92377162/789b4be5-a260-4d5c-96bb-721d33aae5c5)
+
+---
+
+## Reference
+- https://prestodb.io/docs/current/functions/datetime.html#date-and-time-functions
