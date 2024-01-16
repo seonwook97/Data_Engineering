@@ -86,7 +86,7 @@
 
 <table>
   <tr>
-    <th style="width: 700px;">파트명</th>
+    <th style="width: 750px;">파트명</th>
     <th style="width: 100px;">시작일자</th>
     <th style="width: 100px;">종료일자</th>
   </tr>
@@ -133,8 +133,8 @@
 
 <table>
   <tr>
-    <th style="width: 200px;">도서명</th>
-    <th style="width: 150px;">저자</th>
+    <th style="width: 300px;">도서명</th>
+    <th style="width: 2000px;">저자</th>
     <th style="width: 150px;">출판사</th>
     <th style="width: 100px;">시작일자</th>
     <th style="width: 100px;">종료일자</th>
