@@ -23,50 +23,15 @@
 
 ### 클라우드 활용 데이터 파이프라인 구축
 
-<table>
-  <tr>
-    <th style="width: 250px;">파트명</th>
-    <th style="width: 150px;">시작일자</th>
-    <th style="width: 150px;">종료일자</th>
-  </tr>
-  <tr>
-    <td>데이터 수집 파이프라인 구축 (데이터파이프라인의이해, 데이터 파이프라인을 위한 AWS서비스, 실습준비, Kafka install on EC2)</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>데이터 수집 파이프라인 구축 (Api-Gateway, Kinesis Stream, Firehose, S3의 이해)</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>데이터 분석 파이프라인 구축(CH01_01 데이터 분석 흐름의 이해~Zeppelin을 이용한 데이터 처리)</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>데이터 분석 파이프라인 구축 (AWS GLUE의 이해~zeppelin)</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>데이터 분석 및 시각화 파이프라인 구축 (Presto를 활용한 분석, Presto와 Tableau 연동)</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>데이터 분석 파이프라인 구축 (EMR환경에서 Pyspark설정, PySpark을 활용해서 데이터 처리, Redshif의 및 실습, Redshift Spectrum 설정 및 실습)</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>데이터 파이프라인 Extension</td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-
+| 파트명                                                                                                         | 시작일자 | 종료일자 |
+|--------------------------------------------------------------------------------------------------------------|---------|---------|
+| 데이터 수집 파이프라인 구축 (데이터파이프라인의이해, 데이터 파이프라인을 위한 AWS서비스, 실습준비, Kafka install on EC2) |         |         |
+| 데이터 수집 파이프라인 구축 (Api-Gateway, Kinesis Stream, Firehose, S3의 이해)                                 |         |         |
+| 데이터 분석 파이프라인 구축(CH01_01 데이터 분석 흐름의 이해~Zeppelin을 이용한 데이터 처리)                    |         |         |
+| 데이터 분석 파이프라인 구축 (AWS GLUE의 이해~zeppelin)                                                       |         |         |
+| 데이터 분석 및 시각화 파이프라인 구축 (Presto를 활용한 분석, Presto와 Tableau 연동)                         |         |         |
+| 데이터 분석 파이프라인 구축 (EMR환경에서 Pyspark설정, PySpark을 활용해서 데이터 처리, Redshif의 및 실습, Redshift Spectrum 설정 및 실습) | | |
+| 데이터 파이프라인 Extension                                                                                    |         |         |
 
 ---
 
