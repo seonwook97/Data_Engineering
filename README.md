@@ -4,58 +4,119 @@
 
 ### 한 번에 끝내는 데이터 엔지니어링 초격차 패키지 Online
 
-| 파트명                              | 시작일자       | 종료일자       |
-| -------------------------------- | ---------- | ---------- |
-| 초격차 데이터 엔지니어링 강의 로드맵             | 2023-04-03 | 2023-04-09 |
-| 유틸리티 강의                          | 2023-04-10 |            |
-| 웹 서비스와 데이터 기초                    | 2023-04-20 | 2023-04-22 |
-| Server(Backend Engineering) 기초   | 2023-04-24 |            |
-| Observability                    |            |            |
-| 분산 시스템 Fundamental               |            |            |
-| ElasticSearch(OpenSearch)        |            |            |
-| Hadoop, Hive, HBase              | 2023-05-08 |            |
-| Batch, ETL, Workflow Scheduler   |            |            |
-| Distributed Streaming Processing |            |            |
-| Spark                            | 2023-07-06 |            |
-| BigData OLAP                     | 2023-05-14 |            |
-| 대용량 데이터 에코 시스템 구축하기              |            |            |
-| Engineering Way                  |            |            |
+<table style="width: 100%;">
+  <tr>
+    <th style="width: 40%;">파트명</th>
+    <th style="width: 30%;">시작일자</th>
+    <th style="width: 30%;">종료일자</th>
+  </tr>
+  <tr>
+    <td>초격차 데이터 엔지니어링 강의 로드맵</td>
+    <td>2023-04-03</td>
+    <td>2023-04-09</td>
+  </tr>
+  <tr>
+    <td>유틸리티 강의</td>
+    <td>2023-04-10</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>웹 서비스와 데이터 기초</td>
+    <td>2023-04-20</td>
+    <td>2023-04-22</td>
+  </tr>
+  <tr>
+    <td>Server(Backend Engineering) 기초</td>
+    <td>2023-04-24</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Observability</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>분산 시스템 Fundamental</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>ElasticSearch(OpenSearch)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Hadoop, Hive, HBase</td>
+    <td>2023-05-08</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Batch, ETL, Workflow Scheduler</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Distributed Streaming Processing</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Spark</td>
+    <td>2023-07-06</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>BigData OLAP</td>
+    <td>2023-05-14</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>대용량 데이터 에코 시스템 구축하기</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Engineering Way</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
 
 ### 클라우드 활용 데이터 파이프라인 구축
 
 <table>
   <tr>
-    <th style="width: 900px;">파트명</th>
+    <th style="width: 700px;">파트명</th>
     <th style="width: 100px;">시작일자</th>
     <th style="width: 100px;">종료일자</th>
   </tr>
   <tr>
-    <td>데이터 수집 파이프라인 구축 (데이터파이프라인의이해, 데이터 파이프라인을 위한 AWS서비스, 실습준비, Kafka install on EC2)</td>
+    <td>데이터파이프라인의이해, 데이터 파이프라인을 위한 AWS서비스, 실습준비, Kafka install on EC2</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>데이터 수집 파이프라인 구축 (Api-Gateway, Kinesis Stream, Firehose, S3의 이해)</td>
+    <td>Api-Gateway, Kinesis Stream, Firehose, S3의 이해</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>데이터 분석 파이프라인 구축(CH01_01 데이터 분석 흐름의 이해~Zeppelin을 이용한 데이터 처리)</td>
+    <td>데이터 분석 흐름의 이해~Zeppelin을 이용한 데이터 처리</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>데이터 분석 파이프라인 구축 (AWS GLUE의 이해~zeppelin)</td>
+    <td>AWS GLUE의 이해~zeppelin</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>데이터 분석 및 시각화 파이프라인 구축 (Presto를 활용한 분석, Presto와 Tableau 연동)</td>
+    <td>Presto를 활용한 분석, Presto와 Tableau 연동</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>데이터 분석 파이프라인 구축 (EMR환경에서 Pyspark설정, PySpark을 활용해서 데이터 처리, Redshif의 및 실습, Redshift Spectrum 설정 및 실습)</td>
+    <td>EMR환경에서 Pyspark설정, PySpark을 활용해서 데이터 처리, Redshif의 및 실습, Redshift Spectrum 설정 및 실습</td>
     <td></td>
     <td></td>
   </tr>
