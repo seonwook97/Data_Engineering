@@ -25,12 +25,22 @@
 
 | 파트명 | 시작일자 | 종료일자 |
 | :--- | :---: | :---: |
-| 데이터파이프라인의이해, 데이터 파이프라인을 위한 AWS서비스, 실습준비, Kafka install on EC2 | | |
-| Api-Gateway, Kinesis Stream, Firehose, S3의 이해 | | |
-| 데이터 분석 흐름의 이해~Zeppelin을 이용한 데이터 처리 | | |
-| AWS GLUE의 이해~zeppelin | | |
-| Presto를 활용한 분석, Presto와 Tableau 연동 | | |
-| EMR환경에서 Pyspark설정, PySpark을 활용해서 데이터 처리, Redshif의 및 실습, Redshift Spectrum 설정 및 실습 | | |
+| 데이터파이프라인의이해 | | |
+| 데이터 파이프라인을 위한 AWS서비스 | | |
+| Kafka install on EC2 | | |
+| Api-Gateway의 이해 | | |
+| Kinesis Stream의 이해 | | |
+| Firehose의 이해 | | |
+| S3의 이해 | | |
+| 데이터 분석 흐름의 이해 | | |
+| Zeppelin을 이용한 데이터 처리 | | |
+| AWS GLUE의 이해 | | |
+| Presto를 활용한 분석 | | |
+| Presto와 Tableau 연동 | | |
+| EMR환경에서 Pyspark 설정 | | |
+| PySpark을 활용해서 데이터 처리 | | |
+| Redshift의 및 실습 | | |
+| Redshift Spectrum 설정 및 실습 | | |
 | 데이터 파이프라인 Extension | | |
 
 ---
